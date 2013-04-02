@@ -188,7 +188,6 @@ $(".z-list").each(function(){
 
 	
 	story.addActions();
-	story.setAuthor();
 
 	//author
 	$(this).data("ffliker-author",app.author.get(a));
@@ -221,7 +220,7 @@ $(".z-list").each(function(){
 
 function like_story(instance){
 	
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	item.data("ffliker-story",true);
 
 	var i = item.css('background-color','#C4FFCA')
@@ -235,7 +234,7 @@ function like_story(instance){
 
 function like_author(instance){
 	
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	item.data("ffliker-author",true);
 
 	var i = item.find('a[href^="/u"]:first').attr('href').split('/')[2];
@@ -255,7 +254,7 @@ function like_author(instance){
 
 function dislike_author(instance){
 	
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	item.data("ffliker-author",false);
 
 	var i = item.find('a[href^="/u"]:first').attr('href').split('/')[2];
@@ -274,7 +273,7 @@ function dislike_author(instance){
 
 function dislike_story(instance){
 	
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	item.data("ffliker-story",false);
 
 	var i = item.css('background-color','#FCB0B0')
@@ -286,7 +285,7 @@ function dislike_story(instance){
 }
 
 function clear_story(instance){
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	var s = item.find('a[href^="/s"]:first').attr('href').split('/')[2];
 	item.removeData("ffliker-story")
 		
@@ -309,7 +308,7 @@ function clear_story(instance){
 }
 
 function clear_author(instance){
-	var item = $(instance).parents('.z-list');
+	var item = $(instance);
 	var a = item.find('a[href^="/u"]:first').attr('href').split('/')[2];
 	item.removeData("ffliker-author")
 		
