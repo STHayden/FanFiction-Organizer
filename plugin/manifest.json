@@ -1,11 +1,11 @@
 {
-	"name": "FanFiction.net Liker Script",
-	"version": "0.1",
+	"name": "FanFiction Organizer",
+	"version": "0.2",
 	"manifest_version": 2,
-	"description": "Mark stories as like or dislike to color code and organize on fanfiction.net",
+	"description": "Mark stories as like or dislike to color code and organize on fanfiction.net and archiveofourown.org",
 	"content_scripts": [
     {
-      "matches": ["http://www.fanfiction.net/*"],
+      "matches": ["http://www.fanfiction.net/*","http://archiveofourown.org/*"],
       "css": [],
       "js": ["global.js"]
     }
