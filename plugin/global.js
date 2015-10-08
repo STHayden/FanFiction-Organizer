@@ -26,7 +26,7 @@ db.version = db.version || '0.2';
 
 // upgrade 0.1 to 0.2
 if(db.version == '0.1') {
-	
+
 	db["www.fanfiction.net"] = {};
 
 	if(db.author) {
@@ -192,7 +192,7 @@ var Application = function Application(options) {
 		if(typeof value !== "undefined") {
 			a.save("options",name,value)
 			return false;
-		} else { 
+		} else {
 			return db.options[name];
 		}
 	}
@@ -285,10 +285,10 @@ var Story = function(options) {
 
 			_this.css('background-color','#C4FFCA');
 			this.$fic.css('color','green').css('font-weight','900');
-			
+
 		},
 		dislike_story: function(){
-			
+
 			_this.css('background-color','#FCB0B0')
 			this.$fic.css('color','red').css('font-weight','900');
 
@@ -336,7 +336,7 @@ var Story = function(options) {
 	}
 
 	a["archiveofourown.org"] = {
-		$author: _this.find('a[href^="/users/"]:first'),
+		$author: _this.find('a[rel="author"]:first'),
 		$fic: _this.find('a[href^="/works/"]:first'),
 		authorId: function() {
 			return this.$author.attr('href').split('/')[2];
@@ -348,10 +348,10 @@ var Story = function(options) {
 
 			_this.css('background-color','#C4FFCA');
 			this.$fic.css('color','green').css('font-weight','900');
-			
+
 		},
 		dislike_story: function(){
-			
+
 			_this.css('background-color','#FCB0B0')
 			this.$fic.css('color','red').css('font-weight','900');
 
@@ -407,11 +407,11 @@ var Story = function(options) {
 	b.set_author();
 
 	//hide_dislikes
-	if(app.options("hide_dislikes") == true && (b.fic === false || b.author === false)){ 
+	if(app.options("hide_dislikes") == true && (b.fic === false || b.author === false)){
 		if(b.fic !== true) {
 			b.hide();
 		}
-	}	
+	}
 
 	return b;
 
@@ -456,14 +456,14 @@ $('form#myform, .pagination:last').after(
 );
 
 if(app.options("hide_dislikes")){
-	
+
 	$('.liker_script_options').append('<a href="" class="show_dislikes" style="color:blue">Show Dislikes</a>')
-	$('.liker_script_options .show_dislikes').click(function(){ show_dislikes();  }); 
+	$('.liker_script_options .show_dislikes').click(function(){ show_dislikes();  });
 
 } else {
 
 	$('.liker_script_options').append('<a href="" class="hide_dislikes" style="color:blue">Hide Dislikes</a>')
-	$('.liker_script_options .hide_dislikes').click(function(){ hide_dislikes(); }); 
+	$('.liker_script_options .hide_dislikes').click(function(){ hide_dislikes(); });
 
 }
 
@@ -497,11 +497,11 @@ if(app.options("hide_dislikes")){
 		localStorage.setItem("ffliker", JSON.stringify(new_db));
 		document.location = document.location;
 	});
-	$('.liker_script_options .backupToggle').click(function(){ 
+	$('.liker_script_options .backupToggle').click(function(){
 		$(".backup_text").toggle();
 		$(".backup_text .backup_data textarea").html(JSON.stringify(db));
 		return false;
-	}); 
+	});
 
 
 function show_dislikes(){
@@ -513,6 +513,3 @@ function hide_dislikes(){
 	app.options("hide_dislikes",true)
 	return false;
 }
-
-
-

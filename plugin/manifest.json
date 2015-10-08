@@ -1,6 +1,6 @@
 {
 	"name": "FanFiction Organizer",
-	"version": "0.312",
+	"version": "1",
 	"manifest_version": 2,
 	"description": "Mark stories as like or dislike to color code and organize on fanfiction.net and archiveofourown.org",
 	"content_scripts": [
